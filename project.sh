@@ -1,6 +1,21 @@
 #!/bin/bash
 
 
+#удаление временных файлов, переинициализация нужных файлов
+function __clearAll()
+{
+	rm -f geany.make;
+	rm -f geany.run;
+	rm -f geany.commit;
+	
+	rm -f *.jar;
+	#обнулить файл хеш-сумм
+	cat /dev/null > ./tmp/correct_summ;
+	
+	rm -rf ./tmp/_build/*;
+}
+
+
 #Обходим все директории с ресурсами, и добавляем в них make run и commit файлы
 function __createServiceFiles()
 {
@@ -30,14 +45,5 @@ function __createServiceFiles()
 }
 
 
-#Удалить ненужные файлы
-function __deleteTempFiles()
-{
-	rm *.commit;
-	rm *.run;
-	rm *.make;
-}
-
-
 __createServiceFiles;
-__deleteTempFiles;
+__clearAll;
