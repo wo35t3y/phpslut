@@ -1,3 +1,5 @@
 *.make
 *.run
 *.commit
+
+tmp/
