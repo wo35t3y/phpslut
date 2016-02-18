@@ -1,0 +1,1 @@
+/home/daniel/Documents/Sources/php/phpslut/geany.sh
