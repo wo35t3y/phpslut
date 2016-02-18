@@ -13,7 +13,7 @@
 	echo $perem;
 	$bd_link = mysqli_connect( "", "", "", "" );
 	
-	/* ... */
+	/* ... */ 
 	
 	
 	
