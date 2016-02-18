@@ -11,25 +11,23 @@
 			$mtu = new MyTimeUtils();
 			$s_mess = $mtu->getCurDateTimeAsString() . "\t" . $s_mess . "\n"; 
 			
-			$s_log_path = $this->mkLogDir();
+			$s_log_path = $this->getCurrentLogPath();
 			$file = fopen( $s_log_path, "a" );
 			fwrite( $file, $s_mess );
 			fclose( $file );
 		}
 		
 		
-		#Создать каталог для текущей сессии логов
-		#и получить путь до текущего лог-файла
-		private function mkLogDir()
+		#Получить путь до текущего лог-файла
+		private function getCurrentLogPath()
 		{
-			$s_dirpath = "log/" . date( "Y" ) . "/" . date( "m" ) . "_" . date( "M" );
+			$s_dirpath = 
+				"log/" . 
+				date( "Y" ) . "/" . 
+				date( "m" ) . "_" . 
+				date( "M" ) . "/" . 
+				date( "d" ) . ".log";
 			
-			if( !file_exists( $s_dirpath ) )
-			{
-				mkdir( $s_dirpath, 0777, true );
-			}
-			
-			$s_dirpath .= "/" . date( "d" ) . ".log";
 			return $s_dirpath;
 		}
 	}

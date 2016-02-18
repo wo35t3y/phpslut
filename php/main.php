@@ -6,17 +6,17 @@
 	require_once __DIR__ . "/util/MyLogWriter.php";
 	
 	
-	/* Здесь можно писать код */
+	/* ... */
 	
 	
 	echo "Hello world!";
+	$bd_link = mysqli_connect( "", "", "", "" );
+	
+	/* ... */
 	
 	
-	/* Тут больше нельзя! */
 	
-	
-	
-	#Функция обработчик ошибок
+	#Функция - обработчик ошибок
 	function myErr( $errno, $errmsg, $file, $line ) 
 	{
 		$s_errmess = $errno . "\t" . $errmsg . "\t" . $file . "\t" . $line;
