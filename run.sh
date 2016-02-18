@@ -24,7 +24,7 @@ function main
 {
 	#Запускаем xterm с выхлопом текущих логов
 	cur_log_path="./log/"$( date +%Y )"/"$( date +%m )"_"$( date +%b )"/"$( date +%d )".log";
-	$( xterm -e "tail -n 0 -f $cur_log_path" ) &
+	$( xterm -fa 'Terminus' -fs 10 -e "grc tail -n 0 -f $cur_log_path" ) &
 	xterm_pid=$?;
 	
 	#Меняем заголовок текущего терминала
@@ -33,7 +33,7 @@ function main
 	winname=$NAME;
 	
 	#Возвращаем фокус в текущий терминал
-	sleep 0.5s
+	sleep 1s
 	wmctrl -a "$winname";
 	
 	__makeLogDirAndFile;

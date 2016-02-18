@@ -1,5 +1,5 @@
 <?php
-	ini_set( "display_errors", 0 );
+	ini_set( "display_errors", 1 );
 	error_reporting( E_ALL );
 	set_error_handler( "myErr" );
 	
@@ -10,11 +10,8 @@
 	
 	
 	echo "Hello world!";
-	
-	for( $i = 0; $i < 10; $i++ )
-	{
-		$bd_link = mysqli_connect( "", "", "", "" );
-	}
+	echo $perem;
+	$bd_link = mysqli_connect( "", "", "", "" );
 	
 	/* ... */
 	

@@ -8,8 +8,7 @@
 		#Запись сообщения в лог
 		public function writeErr( $s_mess )
 		{
-			$mtu = new MyTimeUtils();
-			$s_mess = $mtu->getCurDateTimeAsString() . "\t" . $s_mess . "\n"; 
+			$s_mess = date("M m H:i:s") . "\t" . $s_mess . "\n"; 
 			
 			$s_log_path = $this->getCurrentLogPath();
 			$file = fopen( $s_log_path, "a" );
