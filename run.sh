@@ -22,8 +22,30 @@ function __makeLogDirAndFile
 #main
 function main
 {
+	#Запускаем xterm с выхлопом текущих логов
+	cur_log_path="./log/"$( date +%Y )"/"$( date +%m )"_"$( date +%b )"/"$( date +%d )".log";
+	$( xterm -e "tail -n 0 -f $cur_log_path" ) &
+	xterm_pid=$?;
+	
+	#Меняем заголовок текущего терминала
+	NAME="$RANDOM$RANDOM"; 
+	echo -en "\033]0;$NAME\a";
+	winname=$NAME;
+	
+	#Возвращаем фокус в текущий терминал
+	sleep 0.5s
+	wmctrl -a "$winname";
+	
 	__makeLogDirAndFile;
 	php ./php/main.php
+	
+	
+	echo "";
+	echo "";
+	echo "-------------------";
+	echo -n "Press ENTER for exit. "
+	read
+	kill $xterm_pid;
 }
 
 

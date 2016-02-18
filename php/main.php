@@ -10,7 +10,11 @@
 	
 	
 	echo "Hello world!";
-	$bd_link = mysqli_connect( "", "", "", "" );
+	
+	for( $i = 0; $i < 10; $i++ )
+	{
+		$bd_link = mysqli_connect( "", "", "", "" );
+	}
 	
 	/* ... */
 	
