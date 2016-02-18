@@ -10,6 +10,7 @@
 	
 	
 	echo "Hello world!";
+	
 	echo $perem;
 	$bd_link = mysqli_connect( "", "", "", "" );
 	
@@ -20,7 +21,7 @@
 	#Функция - обработчик ошибок
 	function myErr( $errno, $errmsg, $file, $line ) 
 	{
-		$s_errmess = $errno . "\t" . $errmsg . "\t" . $file . "\t" . $line;
+		$s_errmess = $errno . "  " . $errmsg . "  " . $file . "  " . $line;
 		$mlw = new MyLogWriter();
 		$mlw->writeErr( $s_errmess );
 	}

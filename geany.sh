@@ -93,11 +93,11 @@ function __run
 {
 	#Запускаем xterm с выхлопом текущих логов
 	cur_log_path="./log/"$( date +%Y )"/"$( date +%m )"_"$( date +%b )"/"$( date +%d )".log";
-	$( xterm -fa 'Terminus' -fs 10 -e "grc tail -n 0 -f $cur_log_path" ) &
+	$( xterm -sb -T "php errors" -fa 'Terminus' -fs 10 -e "grc tail -n 0 -f $cur_log_path" ) &
 	xterm_pid=$?;
 	
 	#Меняем заголовок текущего терминала
-	NAME="$RANDOM$RANDOM"; 
+	NAME="php out"; 
 	echo -en "\033]0;$NAME\a";
 	winname=$NAME;
 	
