@@ -3,6 +3,7 @@
 
 id_string=$( date +%Y%m%d%k%M%S );
 
+git pull;
 git add . ;
 git status ;
 
